@@ -1,4 +1,4 @@
-@import "variables.css";
+/* @import "variables.css";
 
 .App {
   text-align: center;
@@ -41,16 +41,17 @@
 
 .tag-select-container {
   float: left;
-  width: 30%; /* Adjust as needed */
+  width: 30%; 
   text-align: left;
 }
 
 .projects-container {
   float: left;
-  width: 70%; /* Adjust as needed */
+  width: 70%; 
 }
 
 .tag-select-container ul {
   padding-left: 0;
   list-style-type: none;
 }
+ */
