@@ -1,0 +1,13 @@
+@import "variables.css";
+
+.container {
+  text-align: left;
+  width: 500px;
+  border-radius: 50px; /* Adjust the border radius as needed */
+  border: 1px solid #ccc; /* Add border for visual separation */
+  padding: 30px;
+  margin: 10px;
+
+  display: inline-flex; /* Set display to inline-flex */
+  flex-direction: column;
+}
