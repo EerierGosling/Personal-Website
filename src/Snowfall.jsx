@@ -31,7 +31,7 @@ function Snowfall() {
     })
 
     // Set gravity
-    engine.current.gravity.y = 0.005
+    engine.current.gravity.y = 0.05
 
     // Add boundaries
     World.add(engine.current.world, [
@@ -48,7 +48,7 @@ function Snowfall() {
       addSnowflake()
     }, 100); 
 
-    const cursor = Bodies.circle(0, 0, 10, {
+    const cursor = Bodies.circle(0, 0, 5, {
       render: {
         fillStyle: 'transparent',
       },
@@ -57,9 +57,6 @@ function Snowfall() {
 
     World.add(engine.current.world, [cursor]);
     ballRef.current = cursor;
-
-    Runner.run(runner.current, engine.current);
-    Render.run(render);
 
     const handleMouseMove = (event) => {
       const { clientX, clientY } = event;
