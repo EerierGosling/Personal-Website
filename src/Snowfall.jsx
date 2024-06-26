@@ -2,6 +2,9 @@
 
 import { useEffect, useRef, useState } from 'react'
 import { Engine, Render, Bodies, World, Runner, Body } from 'matter-js'
+import snowflake1 from './assets/snowflakes/1.svg'
+import snowflake2 from './assets/snowflakes/2.svg'
+import snowflake3 from './assets/snowflakes/3.svg'
 
 function Snowfall() {
   const scene = useRef()
@@ -12,6 +15,8 @@ function Snowfall() {
 
   const cw = window.innerWidth
   const ch = window.innerHeight
+
+  const snowflakes = [snowflake1, snowflake2, snowflake3]
 
   useEffect(() => {
     const render = Render.create({
@@ -26,7 +31,7 @@ function Snowfall() {
     })
 
     // Set gravity
-    engine.current.gravity.y = 0.05
+    engine.current.gravity.y = 0.005
 
     // Add boundaries
     World.add(engine.current.world, [
@@ -47,7 +52,7 @@ function Snowfall() {
       addSnowflake()
     }, 100); 
 
-    const cursor = Bodies.circle(0, 0, 30, {
+    const cursor = Bodies.circle(0, 0, 10, {
       render: {
         fillStyle: 'transparent',
       },
@@ -96,7 +101,12 @@ function Snowfall() {
       // Set angular velocity
       angularVelocity: angularVelocity,
       render: {
-        fillStyle: '#000000'
+        sprite: {
+          texture: snowflakes[Math.floor(Math.random() * snowflakes.length)],
+          xScale: 0.06,
+          yScale: 0.06
+        },
+        fillStyle: 'white'
       }
     });
   
@@ -117,28 +127,10 @@ function Snowfall() {
   const handleUp = () => {
     
   }
-
-  const handleMove = e => {
-    if (isPressed.current) {
-      const ball = Bodies.circle(
-        e.clientX,
-        e.clientY,
-        10 + Math.random() * 30,
-        {
-          mass: 10,
-          restitution: 0.9,
-          friction: 0.005,
-          render: {
-            fillStyle: '#0000ff'
-          }
-        })
-      World.add(engine.current.world, [ball])
-    }
-  }
-
+  
   return (
     <div
-      onMouseDown={handleDown}
+      // onMouseDown={handleDown}
       // onMouseUp={handleUp}
       // onMouseMove={handleMove}
       style={{ width: '100%', height: '100%' }}
