@@ -1,7 +1,7 @@
 // used https://www.fabiofranchino.com/blog/how-to-use-matter-js-in-react-functional-component/ to start
 
 import { useEffect, useRef, useState } from 'react'
-import { Engine, Render, Bodies, World, Runner, Body } from 'matter-js'
+import { Engine, Render, Bodies, World, Runner, Body, Events } from 'matter-js'
 import snowflake1 from './assets/snowflakes/1.svg'
 import snowflake2 from './assets/snowflakes/2.svg'
 import snowflake3 from './assets/snowflakes/3.svg'
@@ -44,10 +44,6 @@ function Snowfall() {
     Runner.run(runner.current, engine.current)
     Render.run(render)
 
-    // for (let i = 0; i < 100; i++) {
-    //   addSnowflake()
-    // }
-
     const interval = setInterval(() => {
       addSnowflake()
     }, 100); 
@@ -72,17 +68,64 @@ function Snowfall() {
 
     window.addEventListener('mousemove', handleMouseMove);
 
+    // Events.on(engine.current, 'collisionStart', event => {
+    //   const pairs = event.pairs;
+  
+    //   // Example: Assuming `trackedBody` is the body you want to check for collisions
+    //   const trackedBodyId = trackedBody.id; // Make sure `trackedBody` is defined and has an id
+  
+    //   // Initialize an array to store bodies colliding with `trackedBody`
+    //   let collidingBodies = [];
+  
+    //   // Iterate over the pairs to find collisions involving `trackedBody`
+    //   pairs.forEach(pair => {
+    //     if (pair.bodyA.id === trackedBodyId) {
+    //       collidingBodies.push(pair.bodyB);
+    //     } else if (pair.bodyB.id === trackedBodyId) {
+    //       collidingBodies.push(pair.bodyA);
+    //     }
+    //   });
+  
+    //   // `collidingBodies` now contains all bodies colliding with `trackedBody`
+    //   // You can now do something with this list
+    //   console.log(collidingBodies);
+    // });
+    
+
     return () => {
+      // Events.off(engine.current, 'collisionStart');
+      // window.removeEventListener('mousemove', handleMouseMove);
+      // clearInterval(interval);
+      // Render.stop(render)
+      // World.clear(engine.current.world)
+      // Engine.clear(engine.current)
+      // Runner.stop(runner.current)
+      // render.canvas.remove()
+      // render.canvas = null
+      // render.context = null
+      // render.textures = {}
+
+      // Stop the engine
+      Runner.stop(runner.current);
+      Render.stop(render);
+
+      // Clear the world and engine
+      World.clear(engine.current.world, false); // false to not remove the renderer
+      Engine.clear(engine.current);
+
+      // Remove event listeners
+      // Events.off(engine.current, 'collisionStart');
       window.removeEventListener('mousemove', handleMouseMove);
-      clearInterval(interval);
-      Render.stop(render)
-      World.clear(engine.current.world)
-      Engine.clear(engine.current)
-      Runner.stop(runner.current)
-      render.canvas.remove()
-      render.canvas = null
-      render.context = null
-      render.textures = {}
+
+      // Check if the canvas exists before trying to remove it
+      if (render.canvas) {
+        render.canvas.remove();
+        render.canvas = null;
+      }
+
+      // Now it's safe to nullify the context and textures
+      render.context = null;
+      render.textures = {};
     }
   }, [])
 
