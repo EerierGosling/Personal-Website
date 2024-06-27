@@ -1,6 +1,7 @@
 @import "variables.css";
 
 .container {
+  background-color: white;
   text-align: left;
   width: 500px;
   border-radius: 50px; /* Adjust the border radius as needed */

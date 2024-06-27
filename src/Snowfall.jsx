@@ -48,7 +48,7 @@ function Snowfall() {
       addSnowflake()
     }, 100); 
 
-    const cursor = Bodies.circle(0, 0, 5, {
+    const cursor = Bodies.circle(0, 0, 30, {
       render: {
         fillStyle: 'transparent',
       },

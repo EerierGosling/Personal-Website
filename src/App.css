@@ -1,7 +1,11 @@
-/* @import "variables.css";
+@import "variables.css";
+
+
 
 .App {
   text-align: center;
+  background-color: #a8caff;
+  color:black;
 }
 
 .App-logo {
@@ -23,7 +27,6 @@
   align-items: center;
   justify-content: center;
   font-size: calc(10px + 2vmin);
-  color: white;
 }
 
 .App-link {
@@ -53,9 +56,4 @@
 .tag-select-container ul {
   padding-left: 0;
   list-style-type: none;
-}
- */
-
-.App {
-  background-color: #a8caff;
 }
