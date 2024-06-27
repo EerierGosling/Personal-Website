@@ -1,6 +1,8 @@
 @import "variables.css";
 
-
+:root {
+  background-color: #a8caff;
+}
 
 .App {
   text-align: center;
