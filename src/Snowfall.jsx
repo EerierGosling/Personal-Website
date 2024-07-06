@@ -48,7 +48,7 @@ function Snowfall({height}) {
 
     const interval = setInterval(() => {
       addSnowflake()
-      if (allSnowflakes.length > 3000) {
+      if (allSnowflakes.length > 2000) {
         World.remove(engine.current.world, allSnowflakes.shift());
       }
     }, 100); 
@@ -122,7 +122,8 @@ function Snowfall({height}) {
 
   const addSnowflake = e => {
     const xPosition = Math.random() * cw;
-    const size = 3 + Math.random() * 0.1; // Existing size variation
+    const sizeShift = Math.random();
+    const size = 4 + sizeShift; // Existing size variation
     const initialVelocityX = Math.random() * 0.5 - 0.25; // Random horizontal velocity
     const initialVelocityY = Math.random() * 0.5; // Random vertical velocity to add to the initial drop
     const angularVelocity = Math.random() * 0.05 - 0.025; // Random angular velocity
@@ -137,8 +138,8 @@ function Snowfall({height}) {
       render: {
         sprite: {
           texture: snowflakes[Math.floor(Math.random() * snowflakes.length)],
-          xScale: 0.06,
-          yScale: 0.06
+          xScale: 0.06*(sizeShift+1),
+          yScale: 0.06*(sizeShift+1)
         },
         fillStyle: 'white'
       }

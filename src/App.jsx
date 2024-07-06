@@ -1,4 +1,4 @@
-import React, { useState, useEffect } from 'react';
+import React, { useState, useEffect, useRef } from 'react';
 import './App.css';
 import projectsData from './projects.json';
 import tags_dict from './tags_dict.jsx';
@@ -13,6 +13,8 @@ import devpost_logo from './assets/devpost_logo.svg';
 function App() {
 
   const [projects, setProjects] = useState([]);
+
+  const tagSelectContainerRef = useRef(null);
 
   useEffect(() => {
     setProjects(projectsData.projects);
@@ -56,7 +58,7 @@ function App() {
           </div>
         </div>
       
-        <div className="tag-select-container" style={{zIndex: 1}}>
+        <div className="tag-select-container" ref={tagSelectContainerRef} style={{ marginTop: `${Math.max(0, window.scrollY - tagSelectContainerRef.offsetTop)}px`, zIndex: 1, marginLeft:"30px", width: "200px"}}>
           <h2>Select Tags</h2>
           <ul>
             {Object.keys(tags_dict).map((tag, index) => (
