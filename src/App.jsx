@@ -43,12 +43,12 @@ function App() {
   };
   
   return (
-    <div className="App">
-      <div style={{position: "fixed", zIndex: -1, margin:0, padding:0, transform:"translateY(-100px)"}}>
-        <Snowfall />
+    <div className="App" style={{display: "flex", flexDirection: "column", justifyContent: "center", position: "relative", overflow: "hidden"}}>
+      <div style={{position:"relative", zIndex: -10, margin:0, padding:0, height:document.body.scrollHeight}}>
+        <Snowfall height={document.body.scrollHeight}/>
       </div>
 
-      <div className="title" style={{height:"100vh", textAlign:"left", color:"white", margin:"100px"}}>
+      <div className="title" style={{position:"absolute", height:"100vh", textAlign:"left", color:"white", margin:"100px", marginTop:"-5000px"}}>
         <h1>Hi!</h1>
         <h1>I'm Sofia Egan</h1>
         <p style={{width:"40vw"}}>I'm a high schooler in the Boston area. I go to a lot of hackathons and I ran my own this spring, called <a href="https://hacknight.co">HacKnight</a>! <br></br>I enjoy working with a diverse range of platforms and technologies, including apps, websites, games, and random ML and data analysis projects in Python.</p>

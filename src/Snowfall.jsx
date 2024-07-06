@@ -6,7 +6,7 @@ import snowflake1 from './assets/snowflakes/1.svg'
 import snowflake2 from './assets/snowflakes/2.svg'
 import snowflake3 from './assets/snowflakes/3.svg'
 
-function Snowfall() {
+function Snowfall({height}) {
   const scene = useRef()
   const isPressed = useRef(false)
   const engine = useRef(Engine.create())
@@ -14,7 +14,7 @@ function Snowfall() {
   const ballRef = useRef();
 
   const cw = window.innerWidth
-  const ch = window.innerHeight
+  const ch = height+10000
 
   const snowflakes = [snowflake1, snowflake2, snowflake3]
 
@@ -24,7 +24,7 @@ function Snowfall() {
       engine: engine.current,
       options: {
         width: cw,
-        height: ch,
+        height: height,
         wireframes: false,
         background: 'transparent'
       }
@@ -90,17 +90,6 @@ function Snowfall() {
     
 
     return () => {
-      // Events.off(engine.current, 'collisionStart');
-      // window.removeEventListener('mousemove', handleMouseMove);
-      // clearInterval(interval);
-      // Render.stop(render)
-      // World.clear(engine.current.world)
-      // Engine.clear(engine.current)
-      // Runner.stop(runner.current)
-      // render.canvas.remove()
-      // render.canvas = null
-      // render.context = null
-      // render.textures = {}
 
       // Stop the engine
       Runner.stop(runner.current);
@@ -173,9 +162,9 @@ function Snowfall() {
       // onMouseDown={handleDown}
       // onMouseUp={handleUp}
       // onMouseMove={handleMove}
-      style={{ width: '100%', height: '100%' }}
+      style={{ width: '100%', height: height }}
     >
-      <div ref={scene} style={{ width: '100%', height: '100%' }} />
+      <div ref={scene} style={{ width: '100%', height: height}} />
     </div>
   )
 }
