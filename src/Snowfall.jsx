@@ -48,7 +48,7 @@ function Snowfall({height}) {
 
     const interval = setInterval(() => {
       addSnowflake()
-      if (allSnowflakes.length > 5000) {
+      if (allSnowflakes.length > 3000) {
         World.remove(engine.current.world, allSnowflakes.shift());
       }
     }, 100); 
