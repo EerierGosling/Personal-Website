@@ -30,12 +30,8 @@ function App() {
   };
 
   const showProject = (project) => {
-    console.log(project.tags);
     for (const tag of project.tags) {
-      console.log(tag);
-      console.log(selectedTags)
       if (selectedTags.includes(tag)) {
-        console.log("something");
         return <ProjectItem project={project}/>;
       }
     }
@@ -43,32 +39,34 @@ function App() {
   };
   
   return (
-    <div className="App" style={{display: "flex", flexDirection: "column", justifyContent: "center", position: "relative", overflow: "hidden"}}>
-      <div style={{position:"relative", zIndex: -10, margin:0, padding:0, height:document.body.scrollHeight}}>
-        <Snowfall height={document.body.scrollHeight}/>
+    <div className="App" style={{display: "flex", flexDirection: "column", justifyContent: "center", overflow: "hidden"}}>
+      <div style={{position:"absolute", zIndex: -10, margin:0, padding:0, height:document.body.scrollHeight+1000, top: 0, left: 0}}>
+        <Snowfall height={document.body.scrollHeight+1000}/>
       </div>
 
-      <div className="title" style={{position:"absolute", height:"100vh", textAlign:"left", color:"white", margin:"100px", marginTop:"-5000px"}}>
-        <h1>Hi!</h1>
-        <h1>I'm Sofia Egan</h1>
-        <p style={{width:"40vw"}}>I'm a high schooler in the Boston area. I go to a lot of hackathons and I ran my own this spring, called <a href="https://hacknight.co">HacKnight</a>! <br></br>I enjoy working with a diverse range of platforms and technologies, including apps, websites, games, and random ML and data analysis projects in Python.</p>
-        <div>
-          <a href="https://github.com/EerierGosling"> <img className="social-link" src={github_logo}></img> </a>
-          <a href="https://eeriergosling.itch.io/"> <img className="social-link" src={itchio_logo}></img> </a>
-          <a href=" https://devpost.com/segan"> <img className="social-link" src={devpost_logo}></img> </a>
+      <div className="all-content" style={{position:"absolute", top: 0, left: 0}}>
+        <div className="title" style={{height:"100vh", textAlign:"left", color:"white", margin:"100px"}}>
+          <h1>Hi!</h1>
+          <h1>I'm Sofia Egan</h1>
+          <p style={{width:"40vw"}}>I'm a high schooler in the Boston area. I go to a lot of hackathons and I ran my own this spring, called <a href="https://hacknight.co">HacKnight</a>! <br></br>I enjoy working with a diverse range of platforms and technologies, including apps, websites, games, and random ML and data analysis projects in Python.</p>
+          <div>
+            <a href="https://github.com/EerierGosling"> <img className="social-link" src={github_logo}></img> </a>
+            <a href="https://eeriergosling.itch.io/"> <img className="social-link" src={itchio_logo}></img> </a>
+            <a href=" https://devpost.com/segan"> <img className="social-link" src={devpost_logo}></img> </a>
+          </div>
         </div>
-      </div>
-    
-      <div className="tag-select-container" style={{zIndex: 1}}>
-        <h2>Select Tags</h2>
-        <ul>
-          {Object.keys(tags_dict).map((tag, index) => (
-            <li key={index}><input type="checkbox" value={tag} onChange={handleCheckboxChange} defaultChecked /> <Tag key={index} tag={tags_dict[tag]}/> </li>
-          ))}
-        </ul>
-      </div>
-      <div className="projects-container">
-        {projects.map((project, index) => showProject(project))}
+      
+        <div className="tag-select-container" style={{zIndex: 1}}>
+          <h2>Select Tags</h2>
+          <ul>
+            {Object.keys(tags_dict).map((tag, index) => (
+              <li key={index}><input type="checkbox" value={tag} onChange={handleCheckboxChange} defaultChecked /> <Tag key={index} tag={tags_dict[tag]}/> </li>
+            ))}
+          </ul>
+        </div>
+        <div className="projects-container">
+          {projects.map((project, index) => showProject(project))}
+        </div>
       </div>
     </div>
   );

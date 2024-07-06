@@ -13,8 +13,10 @@ function Snowfall({height}) {
   const runner = useRef(Runner.create())
   const ballRef = useRef();
 
+  const allSnowflakes = []
+
   const cw = window.innerWidth
-  const ch = height+10000
+  const ch = height
 
   const snowflakes = [snowflake1, snowflake2, snowflake3]
 
@@ -24,7 +26,7 @@ function Snowfall({height}) {
       engine: engine.current,
       options: {
         width: cw,
-        height: height,
+        height: ch,
         wireframes: false,
         background: 'transparent'
       }
@@ -46,11 +48,14 @@ function Snowfall({height}) {
 
     const interval = setInterval(() => {
       addSnowflake()
+      if (allSnowflakes.length > 5000) {
+        World.remove(engine.current.world, allSnowflakes.shift());
+      }
     }, 100); 
 
     const cursor = Bodies.circle(0, 0, 30, {
       render: {
-        fillStyle: 'transparent',
+        fillStyle: 'black',
       },
       isStatic: true
     });
@@ -60,7 +65,7 @@ function Snowfall({height}) {
 
     const handleMouseMove = (event) => {
       const { clientX, clientY } = event;
-      Body.setPosition(ballRef.current, { x: clientX, y: clientY });
+      Body.setPosition(ballRef.current, { x: clientX, y: clientY+window.scrollY });
     };
 
     window.addEventListener('mousemove', handleMouseMove);
@@ -122,7 +127,7 @@ function Snowfall({height}) {
     const initialVelocityY = Math.random() * 0.5; // Random vertical velocity to add to the initial drop
     const angularVelocity = Math.random() * 0.05 - 0.025; // Random angular velocity
   
-    const ball = Bodies.circle(xPosition, 0, size, {
+    const newSnowflake = Bodies.circle(xPosition, 0, size, {
       restitution: 0.5 + Math.random() * 0.1, // Optional: Adding randomness to restitution
       frictionAir: 0.01 + Math.random() * 0.005, // Optional: Adding randomness to air friction
       // Set initial velocity
@@ -138,8 +143,10 @@ function Snowfall({height}) {
         fillStyle: 'white'
       }
     });
+
+    allSnowflakes.push(newSnowflake);
   
-    World.add(engine.current.world, ball);
+    World.add(engine.current.world, newSnowflake);
   };
 
   const handleDown = e => {
@@ -162,9 +169,9 @@ function Snowfall({height}) {
       // onMouseDown={handleDown}
       // onMouseUp={handleUp}
       // onMouseMove={handleMove}
-      style={{ width: '100%', height: height }}
+      style={{ width: '100%', height: ch, position: 'absolute', top: 0, left: 0}}
     >
-      <div ref={scene} style={{ width: '100%', height: height}} />
+      <div ref={scene} style={{ width: '100%', height: ch}} />
     </div>
   )
 }
