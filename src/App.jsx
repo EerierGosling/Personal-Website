@@ -3,6 +3,8 @@ import './App.css';
 import { Route, Routes } from 'react-router-dom';
 import Header from './Header.jsx';
 import Home from './Home.jsx';
+import Projects from './Projects.jsx';
+import Snowfall from './Snowfall.jsx';
 
 function App() {
 
@@ -36,10 +38,15 @@ function App() {
   
   return (
     <div className="App" style={{display: "flex", flexDirection: "column", justifyContent: "center", overflow: "hidden"}}>
+      <div style={{position:"absolute", zIndex: -10, margin:0, padding:0, height:document.body.scrollHeight+10000, top: 0, left: 0}}>
+        <Snowfall height={document.body.scrollHeight+10000}/>
+      </div>
+
       <Header viewHeight={viewHeight} viewWidth={viewWidth} />
 
       <Routes>
-        <Route path="/" element={<Home />} />
+        <Route path="/" element={<Home scrollY={scrollY} viewHeight={viewHeight} viewWidth={viewWidth} />} />
+        <Route path="/projects" element={<Projects scrollY={scrollY} viewHeight={viewHeight} viewWidth={viewWidth} />} />
       </Routes>
       
     </div>
