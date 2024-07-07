@@ -55,7 +55,7 @@ function Snowfall({height}) {
 
     const cursor = Bodies.circle(0, 0, 30, {
       render: {
-        fillStyle: 'black',
+        fillStyle: 'transparent',
       },
       isStatic: true
     });

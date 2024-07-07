@@ -47,7 +47,8 @@ function Projects({scrollY, viewHeight, viewWidth}) {
   return (
     <div className="Home" style={{display: "flex", flexDirection: "column", justifyContent: "center", overflow: "hidden"}}>
       <div className="all-content" style={{position:"absolute", top: "20vh", left: 0}}>    
-        <div className="tag-select-container" style={{ marginTop: `${Math.max(0, scrollY - (projectsContainerRef.current ? projectsContainerRef.current.offsetTop : 0))}px`, zIndex: 1, marginLeft:"30px", width: tagWidth}}>
+        <div className="tag-select-container" style={{width: "200px", height:1}}></div>
+        <div className="tag-select-container" style={{position: (scrollY - (projectsContainerRef.current ? projectsContainerRef.current.offsetTop : 1000)) > 0 ? "fixed" : "", zIndex: 1, marginLeft:"30px"}}>
           <h2>Select Tags</h2>
           <ul>
             {Object.keys(tags_dict).map((tag, index) => (

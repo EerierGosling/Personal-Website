@@ -52,9 +52,9 @@ function App() {
         <div className="header" style={{display:"flex", flexDirection: "row", position:"absolute", top: 0, left: 0, right: 0, width: "100vw", height: "15vh", overflow:"hidden"}}>
           {cloudsArr}
           <nav>
-            <div style={{display:"flex", position:"absolute", justifyContent: "flex-end", alignItems: "center", right: 0, margin:"10px", marginRight:"40px", marginTop:"25px"}}>
-                <div className="header-link"><Link to="/">Home</Link></div>
-                <div className="header-link"><Link to="/projects">Projects</Link></div>
+            <div style={{display:"flex", position:"absolute", justifyContent: "flex-end", alignItems: "center", right: 0, margin:"10px", marginRight:"40px", marginTop:"8px"}}>
+                <div className="header-link"><Link to="/"><p className="header-link-text">Home</p></Link></div>
+                <div className="header-link"><Link to="/projects"><p className="header-link-text">Projects</p></Link></div>
                 {/* Add more navigation links as needed */}
             </div>
           </nav>
