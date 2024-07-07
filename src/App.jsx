@@ -14,11 +14,36 @@ function App() {
 
   const [projects, setProjects] = useState([]);
 
-  const tagSelectContainerRef = useRef(null);
+  const [scrollY, setScrollY] = useState(0);
+  const [viewWidth, setViewWidth] = useState(0);
+  const [viewHeight, setViewHeight] = useState(0);
+
+  const projectsContainerRef = useRef(null);
 
   useEffect(() => {
     setProjects(projectsData.projects);
-  }, []);
+
+    const handleScroll = () => {
+      setScrollY(window.scrollY);
+    };
+
+    const handleResize = () => {
+      setViewWidth(window.innerWidth);
+      setViewHeight(window.innerHeight);
+    };
+
+    handleScroll();
+    handleResize();
+
+    window.addEventListener('scroll', handleScroll);
+    window.addEventListener('resize', handleResize);
+
+    return () => {
+      window.removeEventListener('scroll', handleScroll);
+      window.removeEventListener('rezize', handleResize);
+    };
+
+  }, [scrollY]);
 
   const [selectedTags, setSelectedTags] = useState(Object.keys(tags_dict));
 
@@ -58,7 +83,7 @@ function App() {
           </div>
         </div>
       
-        <div className="tag-select-container" ref={tagSelectContainerRef} style={{ marginTop: `${Math.max(0, window.scrollY - tagSelectContainerRef.offsetTop)}px`, zIndex: 1, marginLeft:"30px", width: "200px"}}>
+        <div className="tag-select-container" style={{ marginTop: `${Math.max(0, scrollY - (projectsContainerRef.current ? projectsContainerRef.current.offsetTop : 0))}px`, zIndex: 1, marginLeft:"30px", width: "200px"}}>
           <h2>Select Tags</h2>
           <ul>
             {Object.keys(tags_dict).map((tag, index) => (
@@ -66,7 +91,7 @@ function App() {
             ))}
           </ul>
         </div>
-        <div className="projects-container">
+        <div className="projects-container" ref={projectsContainerRef}>
           {projects.map((project, index) => showProject(project))}
         </div>
       </div>

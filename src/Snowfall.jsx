@@ -123,7 +123,7 @@ function Snowfall({height}) {
   const addSnowflake = e => {
     const xPosition = Math.random() * cw;
     const sizeShift = Math.random();
-    const size = 4 + sizeShift; // Existing size variation
+    const size = 4 + 4*sizeShift; // Existing size variation
     const initialVelocityX = Math.random() * 0.5 - 0.25; // Random horizontal velocity
     const initialVelocityY = Math.random() * 0.5; // Random vertical velocity to add to the initial drop
     const angularVelocity = Math.random() * 0.05 - 0.025; // Random angular velocity
@@ -138,8 +138,8 @@ function Snowfall({height}) {
       render: {
         sprite: {
           texture: snowflakes[Math.floor(Math.random() * snowflakes.length)],
-          xScale: 0.06*(sizeShift+1),
-          yScale: 0.06*(sizeShift+1)
+          xScale: 0.06*(2*sizeShift+1),
+          yScale: 0.06*(2*sizeShift+1)
         },
         fillStyle: 'white'
       }
