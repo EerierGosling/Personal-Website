@@ -9,6 +9,7 @@ import Snowfall from './Snowfall.jsx';
 import github_logo from './assets/github_logo.svg';
 import itchio_logo from './assets/itchio_logo.svg';
 import devpost_logo from './assets/devpost_logo.svg';
+import clouds_texture from './assets/clouds.png';
 
 function App() {
 
@@ -27,6 +28,12 @@ function App() {
   const numColumns = Math.floor(remainingWidth / minColumnWidth);
 
   const projectsContainerRef = useRef(null);
+
+  const cloudsScale = viewHeight*15/100/600;
+
+  const cloudsArr = Array.from({ length: (viewWidth/(cloudsScale*2500) + 1) }, (_, index) => (
+    <img src={clouds_texture} style={{width: cloudsScale*2500, height: cloudsScale*600}}/>
+  ));
 
   useEffect(() => {
     setProjects(projectsData.projects);
@@ -75,12 +82,18 @@ function App() {
   
   return (
     <div className="App" style={{display: "flex", flexDirection: "column", justifyContent: "center", overflow: "hidden"}}>
+      <div className="header" style={{display:"flex", position:"absolute", top: 0, left: 0, width: "100vw", height: "15vh"}}>
+        {cloudsArr}
+        <div>
+
+        </div>
+      </div>
       <div style={{position:"absolute", zIndex: -10, margin:0, padding:0, height:document.body.scrollHeight+10000, top: 0, left: 0}}>
         <Snowfall height={document.body.scrollHeight+10000}/>
       </div>
 
       <div className="all-content" style={{position:"absolute", top: 0, left: 0}}>
-        <div className="title" style={{height:"100vh", textAlign:"left", color:"white", margin:"100px"}}>
+        <div className="title" style={{height:"100vh", textAlign:"left", color:"white", margin:"100px", marginTop:"180px", textShadow: "1px 1px 0px rgba(0, 0, 0, 0.5)"}}>
           <h1>Hi!</h1>
           <h1>I'm Sofia Egan</h1>
           <p style={{width:"40vw"}}>I'm a high schooler in the Boston area. I go to a lot of hackathons and I ran my own this spring, called <a href="https://hacknight.co">HacKnight</a>! <br></br>I enjoy working with a diverse range of platforms and technologies, including apps, websites, games, and random ML and data analysis projects in Python.</p>

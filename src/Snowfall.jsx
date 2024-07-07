@@ -51,7 +51,7 @@ function Snowfall({height}) {
       if (allSnowflakes.length > 2000) {
         World.remove(engine.current.world, allSnowflakes.shift());
       }
-    }, 100); 
+    }, 300); 
 
     const cursor = Bodies.circle(0, 0, 30, {
       render: {
