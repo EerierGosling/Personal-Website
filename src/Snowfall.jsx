@@ -6,21 +6,25 @@ import snowflake1 from './assets/snowflakes/1.svg'
 import snowflake2 from './assets/snowflakes/2.svg'
 import snowflake3 from './assets/snowflakes/3.svg'
 
-function Snowfall({height}) {
+function Snowfall() {
   const scene = useRef()
   const isPressed = useRef(false)
   const engine = useRef(Engine.create())
   const runner = useRef(Runner.create())
   const ballRef = useRef();
 
+  const [viewWidth, setViewWidth] = useState(window.innerWidth);
+  const [viewHeight, setViewHeight] = useState(window.innerHeight);
+
   const allSnowflakes = []
 
-  const cw = window.innerWidth
-  const ch = height
+  const cw = viewWidth
+  const ch = viewHeight+10000
 
   const snowflakes = [snowflake1, snowflake2, snowflake3]
 
   useEffect(() => {
+
     const render = Render.create({
       element: scene.current,
       engine: engine.current,
@@ -37,10 +41,10 @@ function Snowfall({height}) {
 
     // Add boundaries
     World.add(engine.current.world, [
-      Bodies.rectangle(cw / 2, -10, cw, 20, { isStatic: true }),
-      Bodies.rectangle(-10, ch / 2, 20, ch, { isStatic: true }),
-      Bodies.rectangle(cw / 2, ch + 10, cw, 20, { isStatic: true }),
-      Bodies.rectangle(cw + 10, ch / 2, 20, ch, { isStatic: true })
+      Bodies.rectangle(cw / 2, -10, cw, 20, { isStatic: true, render: {fillStyle: 'transparent'}}),
+      Bodies.rectangle(-10, ch / 2, 20, ch, { isStatic: true, render: {fillStyle: 'transparent'} }),
+      Bodies.rectangle(cw / 2, ch + 10, cw, 20, { isStatic: true, render: {fillStyle: 'transparent'} }),
+      Bodies.rectangle(cw + 10, ch / 2, 20, ch, { isStatic: true, render: {fillStyle: 'transparent'}})
     ])
 
     Runner.run(runner.current, engine.current)
@@ -68,7 +72,21 @@ function Snowfall({height}) {
       Body.setPosition(ballRef.current, { x: clientX, y: clientY+window.scrollY });
     };
 
+    const handleResize = () => {
+      setViewWidth(window.innerWidth);
+      setViewHeight(window.innerHeight);
+
+      render.canvas.width = viewWidth;
+      render.canvas.height = viewHeight+1000;
+      Render.run(render)
+
+      console.log("resized???");
+    };
+
+    handleResize();
+
     window.addEventListener('mousemove', handleMouseMove);
+    window.addEventListener('resize', handleResize);
 
     // Events.on(engine.current, 'collisionStart', event => {
     //   const pairs = event.pairs;
@@ -107,6 +125,7 @@ function Snowfall({height}) {
       // Remove event listeners
       // Events.off(engine.current, 'collisionStart');
       window.removeEventListener('mousemove', handleMouseMove);
+      window.removeEventListener('rezize', handleResize);
 
       // Check if the canvas exists before trying to remove it
       if (render.canvas) {

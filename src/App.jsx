@@ -45,8 +45,8 @@ function App() {
   return (
     <div>
       <div className="App" style={{display: "flex", flexDirection: "column", justifyContent: "center", overflow: "hidden"}}>
-        <div style={{position:"absolute", zIndex: -10, margin:0, padding:0, height:document.body.scrollHeight+10000, top: 0, left: 0}}>
-          <Snowfall height={document.body.scrollHeight+10000}/>
+        <div style={{position:"absolute", zIndex: -10, margin:0, padding:0, height:scrollY+10000, top: 0, left: 0}}>
+          <Snowfall height={scrollY+10000} />
         </div>
 
         <div className="header" style={{display:"flex", flexDirection: "row", position:"absolute", top: 0, left: 0, right: 0, width: "100vw", height: "15vh", overflow:"hidden"}}>
