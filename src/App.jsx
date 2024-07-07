@@ -1,16 +1,22 @@
 import React, { useState, useEffect, useRef } from 'react';
 import './App.css';
-import { Route, Routes } from 'react-router-dom';
-import Header from './Header.jsx';
+import { Route, Router, Link, Routes } from 'react-router-dom';
 import Home from './Home.jsx';
 import Projects from './Projects.jsx';
 import Snowfall from './Snowfall.jsx';
+import clouds_texture from './assets/clouds.png';
 
 function App() {
 
   const [scrollY, setScrollY] = useState(0);
   const [viewWidth, setViewWidth] = useState(0);
   const [viewHeight, setViewHeight] = useState(0);
+
+  const cloudsScale = viewHeight*15/100/600;
+
+  const cloudsArr = Array.from({ length: (viewWidth/(cloudsScale*2500) + 1) }, (_, index) => (
+    <img src={clouds_texture} style={{width: cloudsScale*2500, height: cloudsScale*600}}/>
+  ));
 
   useEffect(() => {
 
@@ -37,18 +43,29 @@ function App() {
   }, [scrollY]);
   
   return (
-    <div className="App" style={{display: "flex", flexDirection: "column", justifyContent: "center", overflow: "hidden"}}>
-      <div style={{position:"absolute", zIndex: -10, margin:0, padding:0, height:document.body.scrollHeight+10000, top: 0, left: 0}}>
-        <Snowfall height={document.body.scrollHeight+10000}/>
+    <div>
+      <div className="App" style={{display: "flex", flexDirection: "column", justifyContent: "center", overflow: "hidden"}}>
+        <div style={{position:"absolute", zIndex: -10, margin:0, padding:0, height:document.body.scrollHeight+10000, top: 0, left: 0}}>
+          <Snowfall height={document.body.scrollHeight+10000}/>
+        </div>
+
+        <div className="header" style={{display:"flex", flexDirection: "row", position:"absolute", top: 0, left: 0, right: 0, width: "100vw", height: "15vh", overflow:"hidden"}}>
+          {cloudsArr}
+          <nav>
+            <div style={{display:"flex", position:"absolute", justifyContent: "flex-end", alignItems: "center", right: 0, margin:"10px", marginRight:"40px", marginTop:"25px"}}>
+                <div className="header-link"><Link to="/">Home</Link></div>
+                <div className="header-link"><Link to="/projects">Projects</Link></div>
+                {/* Add more navigation links as needed */}
+            </div>
+          </nav>
+        </div>
+
+        {/* Define Routes */}
+        <Routes>
+          <Route path="/" element={<Home scrollY={scrollY} viewHeight={viewHeight} viewWidth={viewWidth} />} />
+          <Route path="/projects" element={<Projects scrollY={scrollY} viewHeight={viewHeight} viewWidth={viewWidth} />} />
+        </Routes>
       </div>
-
-      <Header viewHeight={viewHeight} viewWidth={viewWidth} />
-
-      <Routes>
-        <Route path="/" element={<Home scrollY={scrollY} viewHeight={viewHeight} viewWidth={viewWidth} />} />
-        <Route path="/projects" element={<Projects scrollY={scrollY} viewHeight={viewHeight} viewWidth={viewWidth} />} />
-      </Routes>
-      
     </div>
   );
 }

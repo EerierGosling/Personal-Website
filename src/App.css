@@ -2,6 +2,44 @@
 @import url('https://fonts.googleapis.com/css2?family=Noto+Sans+Mono:wght@100..900&display=swap');
 
 :root {
-    background-color: #a8caff;
-    font-family: 'Noto Sans Mono', monospace;
-  }
+  background-color: #a8caff;
+  font-family: 'Noto Sans Mono', monospace;
+}
+
+.App {
+  text-align: center;
+  color: black;
+}
+
+.header {
+  display: flex;
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100vw;
+  height: 15vh;
+  overflow: hidden;
+  z-index: 10; /* Ensure header is on top */
+}
+
+.header nav {
+  z-index: 11; /* Ensure nav is above the header */
+}
+
+.button-link-nav {
+  z-index: 12; /* Ensure button is above everything else */
+}
+
+nav ul {
+  list-style-type: none;
+  padding: 0;
+}
+
+nav ul li {
+  display: inline;
+  margin: 0 10px;
+}
+
+.header-link{
+  margin-left:70px;
+}

@@ -4,7 +4,7 @@ import './Tag.css';
 const Tag = ({ tag }) => {
   const darkerColor = darkenColor(tag.color);
   return (
-    <div className="tag-container" style={{ backgroundColor: tag.color, border: `1.5px solid ${darkerColor}`}}>
+    <div className="tag-container" style={{ backgroundColor: tag.color}}>
       <p className="tag-text" style={{color:darkerColor}}>{tag.name}</p>
     </div>
   );

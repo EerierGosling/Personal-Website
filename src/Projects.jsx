@@ -5,11 +5,6 @@ import tags_dict from './tags_dict.jsx';
 import ProjectItem from './ProjectItem.jsx';
 import TagSelect from './TagSelect.jsx';
 import Tag from './Tag.jsx';
-import Snowfall from './Snowfall.jsx';
-import github_logo from './assets/github_logo.svg';
-import itchio_logo from './assets/itchio_logo.svg';
-import devpost_logo from './assets/devpost_logo.svg';
-import Header from './Header.jsx';
 
 function Projects({scrollY, viewHeight, viewWidth}) {
 
