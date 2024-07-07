@@ -18,6 +18,14 @@ function App() {
   const [viewWidth, setViewWidth] = useState(0);
   const [viewHeight, setViewHeight] = useState(0);
 
+  const tagWidth = 200;
+
+  const minColumnWidth = 400;
+
+  const remainingWidth = viewWidth - tagWidth;
+
+  const numColumns = Math.floor(remainingWidth / minColumnWidth);
+
   const projectsContainerRef = useRef(null);
 
   useEffect(() => {
@@ -67,8 +75,8 @@ function App() {
   
   return (
     <div className="App" style={{display: "flex", flexDirection: "column", justifyContent: "center", overflow: "hidden"}}>
-      <div style={{position:"absolute", zIndex: -10, margin:0, padding:0, height:document.body.scrollHeight+1000, top: 0, left: 0}}>
-        <Snowfall height={document.body.scrollHeight+1000}/>
+      <div style={{position:"absolute", zIndex: -10, margin:0, padding:0, height:document.body.scrollHeight+10000, top: 0, left: 0}}>
+        <Snowfall height={document.body.scrollHeight+10000}/>
       </div>
 
       <div className="all-content" style={{position:"absolute", top: 0, left: 0}}>
@@ -83,7 +91,7 @@ function App() {
           </div>
         </div>
       
-        <div className="tag-select-container" style={{ marginTop: `${Math.max(0, scrollY - (projectsContainerRef.current ? projectsContainerRef.current.offsetTop : 0))}px`, zIndex: 1, marginLeft:"30px", width: "200px"}}>
+        <div className="tag-select-container" style={{ marginTop: `${Math.max(0, scrollY - (projectsContainerRef.current ? projectsContainerRef.current.offsetTop : 0))}px`, zIndex: 1, marginLeft:"30px", width: tagWidth}}>
           <h2>Select Tags</h2>
           <ul>
             {Object.keys(tags_dict).map((tag, index) => (
@@ -91,7 +99,7 @@ function App() {
             ))}
           </ul>
         </div>
-        <div className="projects-container" ref={projectsContainerRef}>
+        <div className="projects-container" ref={projectsContainerRef} style={{gridTemplateColumns: `repeat(${numColumns}, 1fr)`}}>
           {projects.map((project, index) => showProject(project))}
         </div>
       </div>

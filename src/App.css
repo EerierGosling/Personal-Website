@@ -53,7 +53,6 @@
 
 .projects-container {
   display: grid;
-  grid-template-columns: repeat(2, 1fr); /* Creates 3 columns of equal width */
   gap: 10px; /* Sets the gap between grid items */
   padding: 10px; /* Optional: Adds some padding around the grid */
 }
