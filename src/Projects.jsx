@@ -45,10 +45,9 @@ function Projects({scrollY, viewHeight, viewWidth}) {
   };
   
   return (
-    <div className="Home" style={{display: "flex", flexDirection: "column", justifyContent: "center", overflow: "hidden"}}>
+    <div className="Home" style={{display: "flex", flexDirection: "column", justifyContent: "center"}}>
       <div className="all-content" style={{position:"absolute", top: "20vh", left: 0}}>    
-        <div className="tag-select-container" style={{width: "200px", height:1}}></div>
-        <div className="tag-select-container" style={{position: (scrollY - (projectsContainerRef.current ? projectsContainerRef.current.offsetTop : 1000)) > 0 ? "fixed" : "", zIndex: 1, marginLeft:"30px"}}>
+        <div className="tag-select-container" style={{ position: "sticky", top: 0, zIndex: 1, marginLeft:"30px", width: 200}}>
           <h2>Select Tags</h2>
           <ul>
             {Object.keys(tags_dict).map((tag, index) => (
