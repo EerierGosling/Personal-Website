@@ -1,42 +1,111 @@
+@import url('https://fonts.googleapis.com/css2?family=Noto+Sans+Mono:wght@100..900&display=swap');
+
 :root {
-  --background: #ffffff;
-  --foreground: #171717;
+  background-color: #a8caff;
+  font-family: 'Noto Sans Mono', monospace;
+
+  --raisin_black: #262730;
+  --indigo_dye: #033D63;
+  --periwinkle: #C3CCEA;
+  --light_orange: #F5CBA3;
+  --isabelline: #EFE9E7;
+
+  line-height: 1.5;
+  font-weight: 400;
+
+  color-scheme: light dark;
+  color: rgba(255, 255, 255, 0.87);
 }
 
-@media (prefers-color-scheme: dark) {
-  :root {
-    --background: #0a0a0a;
-    --foreground: #ededed;
-  }
+.App {
+  text-align: center;
+  color: black;
 }
 
-html,
-body {
-  max-width: 100vw;
-  overflow-x: hidden;
+.header {
+  display: flex;
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100vw;
+  height: 15vh;
+  overflow: hidden;
+  z-index: 10;
 }
 
-body {
-  color: var(--foreground);
-  background: var(--background);
-  font-family: Arial, Helvetica, sans-serif;
-  -webkit-font-smoothing: antialiased;
-  -moz-osx-font-smoothing: grayscale;
+.header nav {
+  z-index: 11;
 }
 
-* {
-  box-sizing: border-box;
+.button-link-nav {
+  z-index: 12;
+}
+
+nav ul {
+  list-style-type: none;
   padding: 0;
-  margin: 0;
+}
+
+nav ul li {
+  display: inline;
+  margin: 0 10px;
+}
+
+.header-link {
+  margin-left: 70px;
+}
+
+.header-link-text {
+  font-size: 1.3em;
+  font-weight: 700;
 }
 
 a {
-  color: inherit;
-  text-decoration: none;
+  font-weight: 500;
+  color: #646cff;
+  text-decoration: inherit;
+}
+a:hover {
+  color: #535bf2;
 }
 
-@media (prefers-color-scheme: dark) {
-  html {
-    color-scheme: dark;
-  }
+body {
+  margin: 0;
+  display: flex;
+  place-items: center;
+  min-width: 320px;
+  min-height: 100vh;
+  overflow-x: hidden;
+}
+
+h1 {
+  font-size: 3.2em;
+  line-height: 1.1;
+}
+
+button {
+  border-radius: 8px;
+  border: 1px solid transparent;
+  padding: 0.6em 1.2em;
+  font-size: 1em;
+  font-weight: 500;
+  font-family: inherit;
+  background-color: #1a1a1a;
+  cursor: pointer;
+  transition: border-color 0.25s;
+}
+
+button:hover {
+  border-color: #646cff;
+}
+
+button:focus,
+button:focus-visible {
+  outline: 4px auto -webkit-focus-ring-color;
+}
+
+.social-link {
+  height: 40px;
+  width: 40px;
+  padding: 10px;
 }
