@@ -1,0 +1,15 @@
+
+
+.tag-container {
+  display: inline-flex; /* Set display to inline-flex */
+  justify-content: center; /* Center horizontally */
+  align-items: center; /* Center vertically */
+  height: 10px; /* Allow height to adjust based on content */
+  padding: 8px;
+  border-radius:10px;
+  margin: 5px;
+}
+
+.tag-text {
+  font-size: 13px;
+}

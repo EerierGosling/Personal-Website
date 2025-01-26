@@ -1,0 +1,23 @@
+.container {
+  background-color: white;
+  text-align: left;
+  border-radius: 30px; /* Adjust the border radius as needed */
+  padding: 10px 30px 20px 30px;
+  margin: 10px;
+
+  display: inline-flex; /* Set display to inline-flex */
+  flex-direction: column;
+}
+
+
+h2 {
+  font-size: 1.3em; /* 40px/16=2.5em */
+}
+
+h3 {
+  font-size: 1em; /* 30px/16=1.875em */
+}
+
+p {
+  font-size: 0.875em; /* 14px/16=0.875em */
+}

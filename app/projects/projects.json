@@ -1,0 +1,161 @@
+{
+  "projects": [
+    {
+      "name": "QUAL App: An App for my Middle School's Science Department",
+      "date": "Summer 2022-2023",
+      "description": "This app will help run the end-of-year test for my Middle School's Science Department.",
+      "tags": ["Swift"]
+    },
+    {
+      "name": "Mark Rover: A Modular Mars Rover",
+      "where": "NuVu Summer Program",
+      "where_type": "Summer Program",
+      "date": "July 2023",
+      "links": [{
+        "name": "Presentation",
+        "url": "https://docs.google.com/presentation/d/1dubXn3H92zlAgE315F2llNSzRbir0hmS52xVyEhy9DI/"
+      }],
+      "description": "Mark Rover is a modular rover designed to be able to adapt to a variety of situations.",
+      "tags": ["Arduino", "Rhino 7", "Laser Cutting"]
+    },
+    {
+      "name": "Nigel: A Deep Sea Robot",
+      "where": "NuVu Summer Program",
+      "where_type": "Summer Program",
+      "date": "August 2022",
+      "links": [{
+        "name": "Presentation",
+        "url": "https://docs.google.com/presentation/d/1hF5GwGTGZKrF80mlp128KA3_qe08fYb1O4ZtxzqGCfE"
+      }],
+      "description": "Nigel (named after the pelican from Finding Nemo) is a deep-sea robot designed to save endangered species from ground trawling nets.",
+      "tags": ["Arduino", "Rhino 7", "Laser Cutting"]
+    },
+    {
+      "name": "Spikey Boot: A Climbing Boot",
+      "where": "NuVu Summer Program",
+      "where_type": "Summer Program",
+      "date": "August 2021",
+      "links": [{
+        "name": "Presentation",
+        "url": "https://cambridge.nuvustudio.com/posts/602793-final-presentation"
+      }],
+      "note" : "My first project!",
+      "description": "A climbing boot designed to make climbing easier through integrating retractable spikes and a CAM!",
+      "tags": ["Arduino", "Rhino 7", "Laser Cutting"]
+    },
+    {
+      "name": "Global Report",
+      "where": "MIT Blueprint",
+      "where_type": "Hackathon",
+      "date": "March 2024",
+      "note" : "Won the Spirit Award!",
+      "description": "A website civilians can use to be aware of danger in their area.",
+      "links": [{
+        "name": "GitHub Repo",
+        "url": "https://github.com/EerierGosling/Global-Report"
+      },
+      {
+        "name": "Submission Page",
+        "url": "https://ballot.hackmit.org/project/wkhcp-jycmp-sjrqt-axsnm"
+      },
+      {
+        "name": "Trifold",
+        "url": "https://github.com/EerierGosling/Global-Report/blob/main/trifold-project.jpg"
+      }],
+      "tags": ["React", "JavaScript", "CSS", "Arduino"]
+    },
+    {
+      "name": "Job Interview Vocab Trainer",
+      "where": "HackTheCastle II",
+      "where_type": "Hackathon",
+      "date": "January 2024",
+      "note" : "Won Best Technical Execution!",
+      "description": "A website that allows non-native English speakers to practice job interviews and learn words they didn't know.",
+      "links": [{
+        "name": "GitHub Repo",
+        "url": "https://github.com/ItsMeNoobieboy/HackTheCastleII"
+      },
+      {
+        "name": "Devpost",
+        "url": "https://devpost.com/software/job-interview-simulator"
+      }],
+      "tags": ["Python", "Svelte", "JavaScript", "HTML", "CSS", "OpenAI API"]
+    },
+    {
+      "name": "Cat's Schrödinger",
+      "where": "GMTK Game Jam",
+      "where_type": "Hackathon",
+      "date": "July 2023",
+      "description": "A game where you play as Schrödinger's cat and traverse the timeline to escape his house. The theme was Roles Reversed.",
+      "links": [{
+        "name": "GitHub Repo",
+        "url": "https://github.com/EerierGosling/Cats-Schrodinger"
+      },
+      {
+        "name": "Itch.io",
+        "url": "https://itsmenoobieboy.itch.io/cats-schrodinger"
+      }],
+      "tags": ["Unity", "C#"]
+    },
+    {
+      "name": "Periodic Cooking",
+      "where": "Wonderland",
+      "where_type": "Hackathon",
+      "date": "Febuary 2024",
+      "description": "A Unity-based chemistry & cooking game inspired by food and a periodic table.",
+      "links": [{
+        "name": "GitHub Repo",
+        "url": "https://github.com/EerierGosling/Periodic-Cooking"
+      }],
+      "tags": ["Unity", "C#", "Arduino"]
+    },
+    {
+      "name": "Snow Day Sledding",
+      "where": "BB&N Hackathon",
+      "where_type": "Hackathon",
+      "date": "January 2023",
+      "description": "An app that lets you see all the sledding, skating, and skiing areas near you! The user can earn XP as they travel to each location.",
+      "links": [{
+        "name": "GitHub Repo",
+        "url": "https://github.com/EerierGosling/Snow-Day-Sledding"
+      },
+      {
+        "name": "Presentation",
+        "url": "https://docs.google.com/presentation/d/1acBdPOdk9REWFreQ4EXicJParBPiaYJC-Tnyn3GmBP0/edit?usp=sharing"
+      }],
+      "tags": ["Swift", "Unity", "C#"]
+    },
+    {
+      "name": "Duck Duck",
+      "where": "AngelHacks",
+      "where_type": "Hackathon",
+      "date": "May 2023",
+      "description": "Duck Duck is a platformer puzzle game where you use the rising water to help you collect the rubber duckies in a shipwreck!",
+      "links": [{
+        "name": "GitHub Repo",
+        "url": "https://github.com/EerierGosling/Duck-Duck"
+      },
+      {
+        "name": "Itch.io",
+        "url": "https://eeriergosling.itch.io/duckduck"
+      }],
+      "tags": ["Unity", "C#"]
+    },
+    {
+      "name": "Upcoming Events Board",
+      "where": "HackTheCastle",
+      "where_type": "Hackathon",
+      "date": "January 2023",
+      "description": "The Upcoming Events Board allows anyone to organize a local activity and get to know the people in their town, especially people who might be similar to themselves. This lets people such as new immigrants make connections in their new country of residence and find possible opportunities.",
+      "links": [{
+        "name": "Replit",
+        "url": "https://replit.com/@SofiaEgan/Nobles-Hackathon?v=1"
+      },
+      {
+        "name": "Devpost",
+        "url": "https://devpost.com/software/upcoming-events-board"
+      }],
+      "tags": ["HTML", "JavaScript", "CSS"]
+    }
+  ]
+}
