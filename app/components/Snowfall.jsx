@@ -4,17 +4,17 @@
 
 import { useEffect, useRef, useState, useMemo } from 'react'
 import { Engine, Render, Bodies, World, Runner, Body, Events } from 'matter-js'
+import { useRouter, usePathname } from 'next/navigation';
 
 
 function Snowfall() {
   const scene = useRef()
-  const isPressed = useRef(false)
   const engine = useRef(Engine.create())
   const runner = useRef(Runner.create())
   const ballRef = useRef();
 
-  const [viewWidth, setViewWidth] = useState(window.innerWidth);
-  const [viewHeight, setViewHeight] = useState(window.innerHeight);
+  const [viewWidth, setViewWidth] = useState(0);
+  const [viewHeight, setViewHeight] = useState(0);
   const [height, setHeight] = useState(0);
 
   const allSnowflakes = []
@@ -36,16 +36,23 @@ function Snowfall() {
     ]
   }
 
+  // const router = useRouter();
+  // const pathname = usePathname();
+
+  // let prevPathname = pathname;
+
   useEffect(() => {
 
     setHeight(document.documentElement.scrollHeight);
+    setViewHeight(window.innerHeight);
+    setViewWidth(window.innerWidth);
 
     const render = Render.create({
       element: scene.current,
       engine: engine.current,
       options: {
         width: viewWidth,
-        height: height,
+        height: viewHeight,
         wireframes: false,
         background: 'transparent'
       }
@@ -54,7 +61,7 @@ function Snowfall() {
     // Set gravity
     engine.current.gravity.y = 0.05
 
-    walls = generateWalls(viewWidth, height)
+    walls = generateWalls(viewWidth, viewHeight)
 
     World.add(engine.current.world, walls)
 
@@ -86,28 +93,33 @@ function Snowfall() {
     const handleResize = () => {
       setViewWidth(window.innerWidth);
       setViewHeight(window.innerHeight);
-      setHeight(document.documentElement.scrollHeight);
 
-      render.canvas.width = window.innerWidth;
-      render.canvas.height = window.innerHeight;
-      Render.run(render)
+      if (render.canvas) {
+        render.canvas.width = window.innerWidth;
+        render.canvas.height = window.innerHeight;
+        Render.run(render)
+      }
 
-      // remove walls
       World.remove(engine.current.world, walls);
 
       walls = generateWalls(window.innerWidth, window.innerHeight)
 
       World.add(engine.current.world, walls)
-
-      console.log("resized???");
+      
     };
 
     handleResize();
 
+    // console.log("pathname", pathname);
+
+    // if (pathname !== prevPathname) {
+    //   handleResize();
+    //   prevPathname = pathname;
+    // }
+
     window.addEventListener('mousemove', handleMouseMove);
     window.addEventListener('resize', handleResize);
     
-
     return () => {
       Runner.stop(runner.current);
       Render.stop(render);
@@ -116,7 +128,7 @@ function Snowfall() {
       Engine.clear(engine.current);
 
       window.removeEventListener('mousemove', handleMouseMove);
-      window.removeEventListener('rezize', handleResize);
+      window.removeEventListener('resize', handleResize);
 
       if (render.canvas) {
         render.canvas.remove();
@@ -126,7 +138,7 @@ function Snowfall() {
       render.context = null;
       render.textures = {};
     }
-  }, [])
+  }, []) // pathname
 
   const addSnowflake = () => {
     const xPosition = Math.random() * window.innerWidth;
@@ -178,9 +190,9 @@ function Snowfall() {
       // onMouseDown={handleDown}
       // onMouseUp={handleUp}
       // onMouseMove={handleMove}
-      style={{ width: '100%', height: height, position: 'absolute', top: 0, left: 0}}
+      style={{ width: '100%', height: '100%', position: 'fixed', top: 0, left: 0}}
     >
-      <div ref={scene} style={{ width: '100%', height: height}} />
+      <div ref={scene} style={{ width: '100%', height: viewHeight}} />
     </div>
   )
 }

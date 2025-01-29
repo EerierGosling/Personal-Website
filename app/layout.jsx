@@ -61,8 +61,8 @@ export default function Layout({ children }) {
               </div>
             </nav>
           </div>
-          {children}
         </div>
+        {children}
       </body>
     </html>
 

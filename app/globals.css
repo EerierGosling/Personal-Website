@@ -70,9 +70,11 @@ a:hover {
 }
 
 body {
+  height: 100%;
   margin: 0;
   display: flex;
-  place-items: center;
+  align-items: flex-start;
+  justify-content: flex-start;
   min-width: 320px;
   min-height: 100vh;
   overflow-x: hidden;
