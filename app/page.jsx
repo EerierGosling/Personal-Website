@@ -10,9 +10,10 @@ export default function Home() {
     <div className="Home" style={{display: "flex", flexDirection: "column", justifyContent: "center", overflow: "hidden"}}>
       <div className="all-content" style={{position:"absolute", top: 0, left: 0}}>
         <div className="title" style={{textAlign:"left", color:"white", padding:"100px", padding:"180px", textShadow: "1px 1px 0px rgba(0, 0, 0, 0.5)"}}>
-          <h1>Hi!</h1>
+          <h1>Hey!</h1>
           <h1>I'm Sofia Egan</h1>
-          <p style={{width:"40vw"}}>I'm a high schooler in the Boston area. I go to a lot of hackathons and I ran my own this spring, called <a href="https://hacknight.co">HacKnight</a>! <br></br>I enjoy working with a diverse range of platforms and technologies, including apps, websites, games, and random ML and data analysis projects in Python.</p>
+          <h2 style={{width:"50vw"}}>My username is EerierGosling - you might see that around on my profiles!</h2>
+          <p style={{width:"50vw"}}>I'm a high schooler in the Boston area. I go to a lot of hackathons and I ran my own this spring, called <a href="https://hacknight.co">HacKnight</a>! <br></br>I enjoy working with a diverse range of platforms and technologies, including apps, websites, games, and random ML and data analysis projects in Python.</p>
           <div>
             <a href="https://github.com/EerierGosling">
               <Image className="social-link" src={github_logo} alt="GitHub Logo" width={50} height={50} />

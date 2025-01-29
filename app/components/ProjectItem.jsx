@@ -1,6 +1,6 @@
 import './ProjectItem.css';
 import Tag from './Tag.jsx';
-import tags_dict from './tags_dict.jsx';
+import tags_dict from './tags_dict.js';
 
 const ProjectItem = ({ project }) => {
   return (
