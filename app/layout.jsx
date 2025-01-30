@@ -9,10 +9,6 @@ export default function Layout({ children }) {
 
   const [location, setLocation] = useState({ latitude: null, longitude: null });
   const [locationSet, setLocationSet] = useState(false);
-  const [weatherData, setWeatherData] = useState(null);
-  const [error, setError] = useState(null);
-
-  const [backgroundColor, setBackgroundColor] = useState("#a8caff");
 
   const getLocation = () => {
     if (navigator.geolocation) {
@@ -25,12 +21,28 @@ export default function Layout({ children }) {
           setLocationSet(true);
           console.log(position.coords.latitude, position.coords.longitude);
         },
-        (error) => {
+        async (error) => {
           console.error(error.message);
+          await getIpLocation();
         }
       );
     } else {
       console.error('Geolocation is not supported by this browser.');
+    }
+  };
+
+  const getIpLocation = async () => {
+    try {
+      const response = await fetch('https://ipapi.co/json/');
+      const data = await response.json();
+      setLocation({
+        latitude: data.latitude,
+        longitude: data.longitude,
+      });
+      setLocationSet(true);
+      console.log(data.latitude, data.longitude);
+    } catch (error) {
+      console.error('Error fetching IP location:', error);
     }
   };
 
@@ -63,11 +75,6 @@ export default function Layout({ children }) {
 
           const sunrise = new Date(daily.sunrise);
           const sunset = new Date(daily.sunset);
-
-          setWeatherData({
-            sunrise,
-            sunset,
-          });
 
           const now = new Date();
 
@@ -105,7 +112,6 @@ export default function Layout({ children }) {
 
         } catch (error) {
           console.error('Error fetching weather data:', error);
-          setError('Error fetching weather data');
         }
       }
     };
