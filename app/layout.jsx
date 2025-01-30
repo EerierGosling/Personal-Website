@@ -10,27 +10,25 @@ export default function Layout({ children }) {
   const [location, setLocation] = useState({ latitude: null, longitude: null });
   const [locationSet, setLocationSet] = useState(false);
 
-  const getLocation = () => {
-    if (navigator.geolocation) {
-      navigator.geolocation.getCurrentPosition(
-        (position) => {
-          setLocation({
-            latitude: position.coords.latitude,
-            longitude: position.coords.longitude,
-          });
-          setLocationSet(true);
-        },
-        async (error) => {
-          console.error(error.message);
-          await getIpLocation();
-        }
-      );
-    } else {
-      console.error('Geolocation is not supported by this browser.');
-    }
-  };
+  const getLocation = async () => {
+    // if (navigator.geolocation) {
+    //   navigator.geolocation.getCurrentPosition(
+    //     (position) => {
+    //       setLocation({
+    //         latitude: position.coords.latitude,
+    //         longitude: position.coords.longitude,
+    //       });
+    //       setLocationSet(true);
+    //     },
+    //     async (error) => {
+    //       console.error(error.message);
+    //       await getIpLocation();
+    //     }
+    //   );
+    // } else {
+    //   console.error('Geolocation is not supported by this browser.');
+    // }
 
-  const getIpLocation = async () => {
     try {
       const response = await fetch('https://ipapi.co/json/');
       const data = await response.json();
@@ -43,7 +41,7 @@ export default function Layout({ children }) {
       console.error('Error fetching IP location:', error);
     }
   };
-
+  
   useEffect(() => {
     getLocation();
   }, []);

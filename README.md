@@ -1,6 +1,6 @@
 This is my personal website! It's deployed at [eeriergosling.dev](https://eeriergosling.dev) and [sofiaegan.com](https://sofiaegan.com).
 
-I built this website with Next.js. The snow in the background is interactive - you can play with it using your cursor. The background color is also synced to the time of day at your location (hence the location request, but it also uses IP as a backup).
+I built this website with Next.js. The snow in the background is interactive - you can play with it using your cursor. The background color is also synced to the time of day at your location (based on your IP).
 
 The snow uses Matter.js and the sunrise and sunset times are found using the Open-Meteo Weather API.
 

@@ -20,7 +20,7 @@ export default function Home() {
             I love working with many different platforms and technologies, including apps, websites, games, and random ML and data analysis projects in Python.
           </p>
           <p className="subtitle">
-            This website requests your location because the background color is based on the time of day at your location.
+            The background color on this website is based on the time of day at your location - come back later to see it change!
             <br/><br/>
             The snow in the background is interactive - use your cursor to play with it.
             <br/><br/>
