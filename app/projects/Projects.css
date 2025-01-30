@@ -1,4 +1,4 @@
-.all-content {
+.projects-content {
   display: flex;
   flex-direction: column;
   justify-content: center;
@@ -61,9 +61,27 @@
   }
 }
 
-@media (max-width: 800px) {
+@media (max-width: 900px) {
+  .projects-container {
+    columns: 2;
+  }
+
+  .all-content {
+    margin-left: 20px;
+    margin-right: 20px;
+    width: calc(100% - 40px);
+  }
+}
+
+@media (max-width: 700px) {
   .projects-container {
     columns: 1;
+  }
+
+  .all-content {
+    margin-left: 20px;
+    margin-right: 20px;
+    width: calc(100% - 40px);
   }
   
 }

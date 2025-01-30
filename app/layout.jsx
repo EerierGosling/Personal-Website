@@ -19,7 +19,6 @@ export default function Layout({ children }) {
             longitude: position.coords.longitude,
           });
           setLocationSet(true);
-          console.log(position.coords.latitude, position.coords.longitude);
         },
         async (error) => {
           console.error(error.message);
@@ -40,7 +39,6 @@ export default function Layout({ children }) {
         longitude: data.longitude,
       });
       setLocationSet(true);
-      console.log(data.latitude, data.longitude);
     } catch (error) {
       console.error('Error fetching IP location:', error);
     }
@@ -81,8 +79,6 @@ export default function Layout({ children }) {
           const timeToSunrise = ((now - sunrise) / (1000 * 60 * 60)) % 24;
           const timeToSunset = ((now - sunset) / (1000 * 60 * 60)) % 24;
 
-          console.log(now, sunrise, sunset);
-
           if (Math.abs(timeToSunrise) < 0.5 || Math.abs(timeToSunset) < 0.5) {
 
             let dayPercent = 0;
@@ -99,16 +95,11 @@ export default function Layout({ children }) {
               color.push(daylight[i] * dayPercent + night[i] * (1 - dayPercent));
             }
 
-            console.log(color);
-
             document.documentElement.style.setProperty('--primary-color', `rgb(${color[0]}, ${color[1]}, ${color[2]})`);
           }
           else if (now.getHours() > sunset.getHours() || now.getHours() < sunrise.getHours()) {
             document.documentElement.style.setProperty('--primary-color', `rgb(${night[0]}, ${night[1]}, ${night[2]})`);
           }
-
-          console.log(timeToSunrise, timeToSunset);
-
 
         } catch (error) {
           console.error('Error fetching weather data:', error);

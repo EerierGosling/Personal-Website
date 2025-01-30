@@ -110,13 +110,6 @@ function Snowfall() {
 
     handleResize();
 
-    // console.log("pathname", pathname);
-
-    // if (pathname !== prevPathname) {
-    //   handleResize();
-    //   prevPathname = pathname;
-    // }
-
     window.addEventListener('mousemove', handleMouseMove);
     window.addEventListener('resize', handleResize);
     

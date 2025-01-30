@@ -39,7 +39,7 @@ function Projects() {
   };
   
   return (
-    <div className="all-content">
+    <div className="projects-content">
       <div className="tag-select-container">
         <div className="tags">
           {Object.keys(tags_dict).map((tag, index) => (
