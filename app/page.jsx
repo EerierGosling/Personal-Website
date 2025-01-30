@@ -19,6 +19,13 @@ export default function Home() {
             I also work for <a className="link" href="https://hackclub.com">Hack Club</a> doing engineering work on projects like <a className="link" href="https://sprig.hackclub.com">Sprig</a> and helping run Counterspell.
             I love working with many different platforms and technologies, including apps, websites, games, and random ML and data analysis projects in Python.
           </p>
+          <p className="subtitle">
+            This website requests your location because if you allow it, the background color is based on the time of day at your location.
+            <br/><br/>
+            The snow in the background is interactive - use your cursor to move it.
+            <br/><br/>
+            Check out the <a className="link" href="https://github.com/EerierGosling/Personal-Website">GitHub repo</a> for this website!
+          </p>
           <div>
             <a href="https://github.com/EerierGosling">
               <Image className="social-link" src={github_logo} alt="GitHub Logo" width={50} height={50} />
