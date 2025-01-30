@@ -119,7 +119,7 @@ export default function Layout({ children }) {
         <meta name="keywords" content="Sofia Egan, hackathons, projects, software development, high schooler, Boston" />
         <meta name="author" content="Sofia Egan" />
 
-        <meta property="og:title" content="Sofia Egan's Personal Website" />
+        <meta property="og:title" content="Sofia Egan" />
         <meta property="og:description" content="Sofia Egan's personal website. Check out my projects here!" />
         <meta property="og:image" content="https://github.com/user-attachments/assets/977b0f29-d4ee-49e6-9475-821760156f50" />
         <meta property="og:type" content="website" />
