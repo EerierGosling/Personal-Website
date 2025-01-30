@@ -20,9 +20,9 @@ export default function Home() {
             I love working with many different platforms and technologies, including apps, websites, games, and random ML and data analysis projects in Python.
           </p>
           <p className="subtitle">
-            This website requests your location because if you allow it, the background color is based on the time of day at your location.
+            This website requests your location because the background color is based on the time of day at your location.
             <br/><br/>
-            The snow in the background is interactive - use your cursor to move it.
+            The snow in the background is interactive - use your cursor to play with it.
             <br/><br/>
             Check out the <a className="link" href="https://github.com/EerierGosling/Personal-Website">GitHub repo</a> for this website!
           </p>
