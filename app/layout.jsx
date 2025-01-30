@@ -112,7 +112,7 @@ export default function Layout({ children }) {
     <html>
       <head>
         <title>
-          Sofia Egan's personal website! Check out the projects I've built here.
+          Sofia Egan
         </title>
         <link rel="icon" type="image/x-icon" href="/frog_pfp.png"></link>
         <meta name="description" content="Sofia Egan's personal website. Check out my projects here!" />
