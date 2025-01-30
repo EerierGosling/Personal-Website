@@ -17,7 +17,7 @@ function Snowfall() {
   const [viewHeight, setViewHeight] = useState(0);
   const [height, setHeight] = useState(0);
 
-  const allSnowflakes = []
+  const allSnowflakes = useRef([]); // Use ref to persist the array across renders
 
   let walls = []
 
@@ -70,8 +70,8 @@ function Snowfall() {
 
     const interval = setInterval(() => {
       addSnowflake()
-      if (allSnowflakes.length > 100) {
-        World.remove(engine.current.world, allSnowflakes.shift());
+      if (allSnowflakes.current.length > 100) {
+        World.remove(engine.current.world, allSnowflakes.current.shift());
       }
     }, 300); 
 
@@ -121,6 +121,7 @@ function Snowfall() {
     window.addEventListener('resize', handleResize);
     
     return () => {
+      clearInterval(interval);
       Runner.stop(runner.current);
       Render.stop(render);
 
@@ -165,7 +166,7 @@ function Snowfall() {
       }
     });
 
-    allSnowflakes.push(newSnowflake);
+    allSnowflakes.current.push(newSnowflake);
   
     World.add(engine.current.world, newSnowflake);
   };

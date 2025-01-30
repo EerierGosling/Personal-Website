@@ -1,7 +1,11 @@
 @import url('https://fonts.googleapis.com/css2?family=Noto+Sans+Mono:wght@100..900&display=swap');
 
 :root {
-  background-color: #a8caff;
+
+  --primary-color: #a8caff;
+  --highlight: #f3f38d;
+  --darker-highlight: #e2e277;
+  background-color: var(--primary-color);
   font-family: 'Noto Sans Mono', monospace;
 
   --raisin_black: #262730;
@@ -20,17 +24,46 @@
 .App {
   text-align: center;
   color: black;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  overflow: hidden;
 }
 
 .header {
   display: flex;
+  flex-direction: row;
   position: absolute;
   top: 0;
   left: 0;
+  right: 0;
   width: 100vw;
   height: 15vh;
   overflow: hidden;
   z-index: 10;
+  background-image: url('./assets/clouds.png');
+  background-repeat: repeat-x;
+  background-size: contain;
+}
+
+.snow-container {
+  position: absolute;
+  z-index: -10;
+  margin: 0;
+  padding: 0;
+  top: 0;
+  left: 0;
+}
+
+.header-links {
+  display: flex;
+  position: absolute;
+  justify-content: flex-end;
+  align-items: center;
+  right: 0;
+  margin: 10px;
+  margin-right: 40px;
+  margin-top: 8px;
 }
 
 .header nav {
@@ -58,15 +91,23 @@ nav ul li {
 .header-link-text {
   font-size: 1.3em;
   font-weight: 700;
+  color: var(--primary-color);
 }
 
-a {
+a, button {
   font-weight: 500;
-  color: #646cff;
+  color: var(--primary-color);
   text-decoration: inherit;
 }
-a:hover {
-  color: #535bf2;
+a:hover, button:hover {
+  color: var(--primary-color);
+}
+
+.link {
+  color: var(--highlight);
+}
+.link:hover{
+  color: var(--darker-highlight);
 }
 
 body {
@@ -103,10 +144,6 @@ button {
   transition: border-color 0.25s;
 }
 
-button:hover {
-  border-color: #646cff;
-}
-
 button:focus,
 button:focus-visible {
   outline: 4px auto -webkit-focus-ring-color;
@@ -116,4 +153,12 @@ button:focus-visible {
   height: 40px;
   width: 40px;
   padding: 10px;
+}
+
+.title {
+  text-align: left;
+  color: white;
+  padding: 180px;
+  text-shadow: 0.5px 0.5px 5px rgba(0, 0, 0, 0.5);
+  width: 50vw;
 }

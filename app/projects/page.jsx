@@ -44,7 +44,7 @@ function Projects() {
         <div className="tags">
           {Object.keys(tags_dict).map((tag, index) => (
             <li key={index} className="tag-select-item">
-              <input className="checkbox" type="checkbox" value={tag} onChange={handleCheckboxChange} defaultChecked />
+              <input className="checkbox-tag" type="checkbox" value={tag} onChange={handleCheckboxChange} defaultChecked />
               <Tag key={index} tag={tags_dict[tag]}/>
             </li>
           ))}

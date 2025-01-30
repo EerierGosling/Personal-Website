@@ -9,14 +9,15 @@ export default function Home() {
   return (
     <div className="Home" style={{display: "flex", flexDirection: "column", justifyContent: "center", overflow: "hidden"}}>
       <div className="all-content" style={{position:"absolute", top: 0, left: 0}}>
-        <div className="title" style={{textAlign:"left", color:"white", padding:"100px", padding:"180px", textShadow: "1px 1px 0px rgba(0, 0, 0, 0.5)"}}>
+        <div className="title">
           <h1>Hey!</h1>
           <h1>I'm Sofia Egan</h1>
-          <h2 style={{width:"50vw"}}>My username is EerierGosling - you might see that around on my profiles!</h2>
-          <p style={{width:"50vw"}}>
+          <h2>My username is EerierGosling - you might see that around on my profiles!</h2>
+          <p>
             I'm a high schooler in the Boston area.
-            I go to a lot of hackathons and I've run some of my own! I ran <a href="https://hacknight.co/">HacKnight</a> and was an organizer for <a href="https://counterspell.hackclub.com">Counterspell</a> globally and <a href="https://counterspell.hackclub.com/boston">Counterspell Boston</a>.
-            I enjoy working with a diverse range of platforms and technologies, including apps, websites, games, and random ML and data analysis projects in Python.
+            I go to a lot of hackathons and I've run some of my own! I ran <a className="link" href="https://hacknight.co/">HacKnight</a> and was an organizer for <a className="link" href="https://counterspell.hackclub.com">Counterspell</a> globally and <a className="link" href="https://counterspell.hackclub.com/boston">Counterspell Boston</a>.
+            I also work for <a className="link" href="https://hackclub.com">Hack Club</a> doing engineering work on projects like <a className="link" href="https://sprig.hackclub.com">Sprig</a> and helping run Counterspell.
+            I love working with many different platforms and technologies, including apps, websites, games, and random ML and data analysis projects in Python.
           </p>
           <div>
             <a href="https://github.com/EerierGosling">
