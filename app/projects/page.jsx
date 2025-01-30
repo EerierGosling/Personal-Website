@@ -13,9 +13,7 @@ function Projects() {
   const [projects, setProjects] = useState([]);
 
   useEffect(() => {
-    
-    setProjects(projectsData.projects)
-
+    setProjects(projectsData.projects);
   }, []);
 
   const [selectedTags, setSelectedTags] = useState(Object.keys(tags_dict));
@@ -37,7 +35,7 @@ function Projects() {
     }
     return;
   };
-  
+
   return (
     <div className="projects-content">
       <div className="tag-select-container">

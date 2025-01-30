@@ -33,7 +33,7 @@ export default function Home() {
             <a href="https://eeriergosling.itch.io/">
               <Image className="social-link" src={itchio_logo} alt="Itch.io Logo" width={50} height={50} />
             </a>
-            <a href="https://devpost.com/segan">
+            <a href="https://devpost.com/eeriergosling">
               <Image className="social-link" src={devpost_logo} alt="Devpost Logo" width={50} height={50} />
             </a>
           </div>
