@@ -41,7 +41,7 @@ export default function Layout({ children }) {
       console.error('Error fetching IP location:', error);
     }
   };
-  
+
   useEffect(() => {
     getLocation();
   }, []);
@@ -110,6 +110,21 @@ export default function Layout({ children }) {
 
   return (
     <html>
+      <head>
+        <title>
+          Sofia Egan's personal website! Check out the projects I've built here.
+        </title>
+        <link rel="icon" type="image/x-icon" href="/frog_pfp.png"></link>
+        <meta name="description" content="Sofia Egan's personal website. Check out my projects here!" />
+        <meta name="keywords" content="Sofia Egan, hackathons, projects, software development, high schooler, Boston" />
+        <meta name="author" content="Sofia Egan" />
+
+        <meta property="og:title" content="Sofia Egan's Personal Website" />
+        <meta property="og:description" content="Sofia Egan's personal website. Check out my projects here!" />
+        <meta property="og:image" content="https://github.com/user-attachments/assets/977b0f29-d4ee-49e6-9475-821760156f50" />
+        <meta property="og:type" content="website" />
+      </head>
+      
       <body>
         <div className="App">
           <div className="snow-container">
