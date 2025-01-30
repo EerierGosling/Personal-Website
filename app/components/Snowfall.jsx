@@ -4,7 +4,6 @@
 
 import { useEffect, useRef, useState, useMemo } from 'react'
 import { Engine, Render, Bodies, World, Runner, Body, Events } from 'matter-js'
-import { useRouter, usePathname } from 'next/navigation';
 
 
 function Snowfall() {
@@ -36,10 +35,6 @@ function Snowfall() {
     ]
   }
 
-  // const router = useRouter();
-  // const pathname = usePathname();
-
-  // let prevPathname = pathname;
 
   useEffect(() => {
 
