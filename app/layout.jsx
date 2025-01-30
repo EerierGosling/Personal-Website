@@ -109,7 +109,7 @@ export default function Layout({ children }) {
   }, [locationSet, location.latitude, location.longitude]);
 
   return (
-    <html>
+    <html lang="en">
       <head>
         <title>
           Sofia Egan
