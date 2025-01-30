@@ -41,7 +41,7 @@
   height: 15vh;
   overflow: hidden;
   z-index: 10;
-  background-image: url('/static/media/clouds.png');
+  background-image: url('/clouds.png');
   background-repeat: repeat-x;
   background-size: contain;
 }
