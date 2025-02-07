@@ -54,46 +54,16 @@
       "tags": ["Python"]
     },
     {
-      "name": "QUAL App: An App for my Middle School's Science Department",
-      "date": "Summer 2022-2023",
-      "description": "This app will help run the end-of-year test for my Middle School's Science Department.",
-      "tags": ["Swift"]
-    },
-    {
-      "name": "Mark Rover: A Modular Mars Rover",
-      "date": "July 2023",
-      "description": "Mark Rover is a modular rover designed to be able to adapt to a variety of situations.",
+      "name": "Personal Website (This Website!)",
+      "date": "January 2025",
+      "description": "This website! The snow in the background is interactive and the background color is based on the time of day at your location (based on IP).",
       "links": [
         {
-          "name": "Presentation",
-          "url": "https://docs.google.com/presentation/d/1dubXn3H92zlAgE315F2llNSzRbir0hmS52xVyEhy9DI/"
+          "name": "Repo",
+          "url": "https://github.com/EerierGosling/Personal-Website"
         }
       ],
-      "tags": ["Arduino"]
-    },
-    {
-      "name": "Nigel: A Deep Sea Robot",
-      "date": "August 2022",
-      "description": "Nigel (named after the pelican from Finding Nemo) is a deep-sea robot designed to save endangered species from ground trawling nets.",
-      "links": [
-        {
-          "name": "Presentation",
-          "url": "https://docs.google.com/presentation/d/1hF5GwGTGZKrF80mlp128KA3_qe08fYb1O4ZtxzqGCfE"
-        }
-      ],
-      "tags": ["Arduino"]
-    },
-    {
-      "name": "Spikey Boot: A Climbing Boot",
-      "date": "August 2021",
-      "description": "A climbing boot designed to make climbing easier through integrating retractable spikes and a CAM!",
-      "links": [
-        {
-          "name": "Presentation",
-          "url": "https://cambridge.nuvustudio.com/posts/602793-final-presentation"
-        }
-      ],
-      "tags": ["Arduino"]
+      "tags": ["React"]
     },
     {
       "name": "MatchTube",
@@ -141,6 +111,48 @@
         }
       ],
       "tags": ["Python", "Svelte", "JavaScript", "HTML", "CSS", "OpenAI API"]
+    },
+    {
+      "name": "Mark Rover: A Modular Mars Rover",
+      "date": "July 2023",
+      "description": "Mark Rover is a modular rover designed to be able to adapt to a variety of situations.",
+      "links": [
+        {
+          "name": "Presentation",
+          "url": "https://docs.google.com/presentation/d/1dubXn3H92zlAgE315F2llNSzRbir0hmS52xVyEhy9DI/"
+        }
+      ],
+      "tags": ["Arduino"]
+    },
+    {
+      "name": "QUAL App: An App for my Middle School's Science Department",
+      "date": "Summer 2022-2023",
+      "description": "This app will help run the end-of-year test for my Middle School's Science Department.",
+      "tags": ["Swift"]
+    },
+    {
+      "name": "Nigel: A Deep Sea Robot",
+      "date": "August 2022",
+      "description": "Nigel (named after the pelican from Finding Nemo) is a deep-sea robot designed to save endangered species from ground trawling nets.",
+      "links": [
+        {
+          "name": "Presentation",
+          "url": "https://docs.google.com/presentation/d/1hF5GwGTGZKrF80mlp128KA3_qe08fYb1O4ZtxzqGCfE"
+        }
+      ],
+      "tags": ["Arduino"]
+    },
+    {
+      "name": "Tom Nook - Slack Bot",
+      "date": "January 2025",
+      "description": "Tom Nook is the welcome bot for my personal channel (#eeriergosling) on Hack Club Slack. When you join my channel, Tom Nook greets you and 'forces you' to buy something from his shop. You type in what you want and he sells it to you for a randomly generated amount of bells, which you pay by replying with emojis totaling to that amount.",
+      "links": [
+        {
+          "name": "Repo",
+          "url": "https://github.com/EerierGosling/Tom-Nook"
+        }
+      ],
+      "tags": ["Python"]
     },
     {
       "name": "Cat's Schrödinger",
@@ -214,6 +226,18 @@
         }
       ],
       "tags": ["Unity", "C#"]
+    },
+    {
+      "name": "Spikey Boot: A Climbing Boot",
+      "date": "August 2021",
+      "description": "A climbing boot designed to make climbing easier through integrating retractable spikes and a CAM!",
+      "links": [
+        {
+          "name": "Presentation",
+          "url": "https://cambridge.nuvustudio.com/posts/602793-final-presentation"
+        }
+      ],
+      "tags": ["Arduino"]
     },
     {
       "name": "Upcoming Events Board",
