@@ -4,6 +4,7 @@ import "./globals.css";
 import Link from 'next/link';
 import Snowfall from './components/Snowfall.jsx';
 import { useEffect, useState } from 'react';
+import { Analytics } from "@vercel/analytics/react";
 
 export default function Layout({ children }) {
 
@@ -141,6 +142,7 @@ export default function Layout({ children }) {
           </div>
         </div>
         {children}
+        <Analytics/>
       </body>
     </html>
 
